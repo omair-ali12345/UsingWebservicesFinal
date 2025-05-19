@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SolveByFormula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="c" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SolveByFormulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SolveByFormulaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SolveByCompletingSquare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="c" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SolveByCompletingSquareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SolveByCompletingSquareResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SolveByFactoring">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="c" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SolveByFactoringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SolveByFactoringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SolveByFormulaSoapIn">
+    <wsdl:part name="parameters" element="tns:SolveByFormula" />
+  </wsdl:message>
+  <wsdl:message name="SolveByFormulaSoapOut">
+    <wsdl:part name="parameters" element="tns:SolveByFormulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SolveByCompletingSquareSoapIn">
+    <wsdl:part name="parameters" element="tns:SolveByCompletingSquare" />
+  </wsdl:message>
+  <wsdl:message name="SolveByCompletingSquareSoapOut">
+    <wsdl:part name="parameters" element="tns:SolveByCompletingSquareResponse" />
+  </wsdl:message>
+  <wsdl:message name="SolveByFactoringSoapIn">
+    <wsdl:part name="parameters" element="tns:SolveByFactoring" />
+  </wsdl:message>
+  <wsdl:message name="SolveByFactoringSoapOut">
+    <wsdl:part name="parameters" element="tns:SolveByFactoringResponse" />
+  </wsdl:message>
+  <wsdl:portType name="QuadraticSolverSoap">
+    <wsdl:operation name="SolveByFormula">
+      <wsdl:input message="tns:SolveByFormulaSoapIn" />
+      <wsdl:output message="tns:SolveByFormulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SolveByCompletingSquare">
+      <wsdl:input message="tns:SolveByCompletingSquareSoapIn" />
+      <wsdl:output message="tns:SolveByCompletingSquareSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SolveByFactoring">
+      <wsdl:input message="tns:SolveByFactoringSoapIn" />
+      <wsdl:output message="tns:SolveByFactoringSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QuadraticSolverSoap" type="tns:QuadraticSolverSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SolveByFormula">
+      <soap:operation soapAction="http://tempuri.org/SolveByFormula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolveByCompletingSquare">
+      <soap:operation soapAction="http://tempuri.org/SolveByCompletingSquare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolveByFactoring">
+      <soap:operation soapAction="http://tempuri.org/SolveByFactoring" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QuadraticSolverSoap12" type="tns:QuadraticSolverSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SolveByFormula">
+      <soap12:operation soapAction="http://tempuri.org/SolveByFormula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolveByCompletingSquare">
+      <soap12:operation soapAction="http://tempuri.org/SolveByCompletingSquare" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolveByFactoring">
+      <soap12:operation soapAction="http://tempuri.org/SolveByFactoring" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QuadraticSolver">
+    <wsdl:port name="QuadraticSolverSoap" binding="tns:QuadraticSolverSoap">
+      <soap:address location="https://localhost:44326/QuadraticSolver.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QuadraticSolverSoap12" binding="tns:QuadraticSolverSoap12">
+      <soap12:address location="https://localhost:44326/QuadraticSolver.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
